@@ -24,7 +24,7 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         docker build . \
-          --tag ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:latest \
-          --tag ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ github.sha }}
-        docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:latest
-        docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ github.sha }}
+          --tag "ghcr.io/${{ github.repository_owner }}/${GITHUB_REPOSITORY#*/}:latest" \
+          --tag "ghcr.io/${{ github.repository_owner }}/${GITHUB_REPOSITORY#*/}:${{ github.sha }}"
+        docker push "ghcr.io/${{ github.repository_owner }}/${GITHUB_REPOSITORY#*/}:latest"
+        docker push "ghcr.io/${{ github.repository_owner }}/${GITHUB_REPOSITORY#*/}:${{ github.sha }}"
