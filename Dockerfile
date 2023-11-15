@@ -6,4 +6,4 @@ COPY . /app
 ENV NPM_CONFIG_UPDATE_NOTIFIER=false
 RUN npm install
 
-ENTRYPOINT ["node", "--loader", "ts-node/esm", "main.ts"]
+ENTRYPOINT ["node", "--loader", "ts-node/esm", "--no-warnings", "main.ts"]
